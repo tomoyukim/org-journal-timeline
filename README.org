@@ -1,0 +1,29 @@
+* org-journal-timeline
+~org-joural-timeline~ provides a view showing multiple journals in one buffer. It helps you to review your journals.
+
+This package is designed to work with [[https://github.com/bastibe/org-journal][org-journal]] at open of the box but it should also work with another journal systems by your customization.
+
+[[./demo.png]]
+
+** Installation
+Using ~strainght.el~
+#+begin_src elisp
+   (straight-use-package
+    '(org-journal-timeline :type git :host github :repo "tomoyukim/org-journal-timeline"))
+#+end_src
+Or with ~package.el~
+#+begin_src elisp
+  (use-package
+    :straight (org-journal-timeline :type git :host github :repo "tomoyukim/org-journal-timeline")
+#+end_src
+** Configuration
+#+begin_src elisp
+  (use-package
+    :straight (org-journal-timeline :type git :host github :repo "tomoyukim/org-journal-timeline")
+    :custom
+    (org-journal-timeline-days 30)
+    (org-journal-timeline-timeline-directory "~/.org/my/journals")
+    (org-journal-timeline-date-format "^\\([0-9]+-[0-9]+-[0-9]+\\.org\\)$")
+    :bind
+    ("C-c j" . org-journal-timeline-show))
+#+end_src
